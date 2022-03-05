@@ -5,10 +5,10 @@ import pandas as pd
 
 # @st.cache
 def app():
-    st.markdown("# Metrics latest summary")
+    st.markdown("## HOME")
     st.write("\n")
     # Summarizes some metrics
-    st.markdown("# BTC price")
+    st.markdown("# Metrics latest summary")
     st.write("\n")
     st.markdown("Technical summary") 
     st.markdown("Onchain summary") 
