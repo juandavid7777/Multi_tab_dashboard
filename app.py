@@ -11,7 +11,7 @@ from pages import home, sentiment_analysis, tech_analysis, onchain_analysis # im
 app = MultiPage()
 
 # Title of the main page
-display = Image.open('Logo.jpg')
+display = Image.open('Logo.png')
 display = np.array(display)
 # st.image(display, width = 400)
 # st.title("Data Storyteller Application")
