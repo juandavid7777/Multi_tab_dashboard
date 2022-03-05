@@ -5,12 +5,12 @@ from pages import utils
 
 # @st.cache
 def app():
-    st.markdown("### Metrics latest summary")
+    st.markdown("Metrics latest summary")
 
     # Summarizes some metrics
-    st.markdown("## BTC price")
+    st.markdown("BTC price")
     st.write("\n")
-    st.markdown("<p style='color:red'>This is a paragraph.</p>") 
+    st.markdown("Technical summary") 
     st.markdown("Onchain summary") 
     st.markdown("Sentiment summary")  
  
