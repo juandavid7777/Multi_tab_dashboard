@@ -7,10 +7,10 @@ from pages import utils
 def app():
     st.markdown("### Metrics latest summary")
 
-    # Upload the dataset and save as csv
+    # Summarizes some metrics
     st.markdown("## BTC price")
     st.write("\n")
-    st.markdown("Onchain summary") 
+    st.markdown("<p style='color:red'>This is a paragraph.</p>") 
     st.markdown("Onchain summary") 
     st.markdown("Sentiment summary")  
  
