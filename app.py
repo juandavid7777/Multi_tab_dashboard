@@ -5,7 +5,7 @@ from PIL import  Image
 
 # Custom imports 
 from multipage import MultiPage
-from pages import data_upload, machine_learning, metadata, data_visualize, redundant # import your pages here
+from pages import home, sentiment_analysis, tech_analysis, onchain_analysis # import your pages here
 
 # Create an instance of the app 
 app = MultiPage()
@@ -17,14 +17,13 @@ display = np.array(display)
 # st.title("Data Storyteller Application")
 col1, col2 = st.beta_columns(2)
 col1.image(display, width = 400)
-col2.title("Crypto Dashboard")
+col2.title("Crypto Dashboard 2")
 
 # Add all your application here
-app.add_page("Upload Data", data_upload.app)
-app.add_page("Change Metadata", metadata.app)
-app.add_page("Machine Learning", machine_learning.app)
-app.add_page("Data Analysis",data_visualize.app)
-app.add_page("Y-Parameter Optimization",redundant.app)
+app.add_page("Homepage", home.app)
+app.add_page("Technical Analysis", tech_analysis.app)
+app.add_page("On-chain Analsysis", onchain_analysis.app)
+app.add_page("Sentiment Analysis", sentiment_analysis.app)
 
 # The main app
 app.run()
