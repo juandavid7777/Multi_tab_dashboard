@@ -43,7 +43,7 @@ def app():
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     fig.add_trace(go.Scatter(
-        x=df_api['Date'],
+        x=df_api['date'],
         y=df_api["close"],
         mode = 'markers',
         name = '',
