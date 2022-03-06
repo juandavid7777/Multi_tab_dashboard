@@ -14,7 +14,7 @@ def app():
     # Summarizes some metrics
 
     #1.-----Downloads data
-    df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/blob/8da5f34a0907e7c9228032e402912cc5044efda0/data/api_24h.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
     
     #2.-----API token definition
     coin_name = "BTC"
