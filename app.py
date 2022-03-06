@@ -16,7 +16,7 @@ display = np.array(display)
 # st.image(display, width = 400)
 # st.title("Data Storyteller Application")
 col1, col2 = st.beta_columns(2)
-col1.image(display, width = 400)
+col1.image(display, width = 800)
 col2.title("Serenity Crypto Dashboard")
 
 # Add all your application here
