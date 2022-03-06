@@ -44,6 +44,13 @@ def app():
         name = coin_name + ' price'
         ))
 
+    #Defines figure properties
+    fig.update_layout(
+        title = coin_name + " uncertainity bands",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
+        legend_title="Uncertainity risk levels",
+        
         plot_bgcolor = "black",
         yaxis_type="log",
         xaxis_rangeslider_visible=False)
