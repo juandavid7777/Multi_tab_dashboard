@@ -11,40 +11,40 @@ from plotly.subplots import make_subplots
 def app():
     st.markdown("# Technical Metrics")
     st.write("\n")
-    # Summarizes some metrics
+    # # Summarizes some metrics
 
-    #1.-----Downloads data
-    df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/BTC_risk_metric/891a1032cb63160763c33f235a4714f2083c9713/BTC_price_projections.csv")
+    # #1.-----Downloads data
+    # df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/BTC_risk_metric/891a1032cb63160763c33f235a4714f2083c9713/BTC_price_projections.csv")
 
 
-    #2.-----API token definition
-    coin_name = "BTC"
-    projected_days = 180
+    # #2.-----API token definition
+    # coin_name = "BTC"
+    # projected_days = 180
 
-    #3.-----Plots figures
+    # #3.-----Plots figures
 
-    #=================================================== BANDS CHART===========================================
-    fig = go.Figure()
+    # #=================================================== BANDS CHART===========================================
+    # fig = go.Figure()
 
-    #Price candlesticks plots
-    fig.add_trace(go.Scatter(
-        x=df['Date'],
-        y=df["close"],
-        mode = 'lines',
-        name = '',
-        line = dict(width = 0.5, color = "white")
-        ))
+    # #Price candlesticks plots
+    # fig.add_trace(go.Scatter(
+    #     x=df['Date'],
+    #     y=df["close"],
+    #     mode = 'lines',
+    #     name = '',
+    #     line = dict(width = 0.5, color = "white")
+    #     ))
 
-    fig.add_trace(go.Candlestick(
-        x=df['Date'],
-        open=df['open'],
-        high=df['high'],
-        low=df['low'],
-        close=df['close'],
-        name = coin_name + ' price'
-        ))
+    # fig.add_trace(go.Candlestick(
+    #     x=df['Date'],
+    #     open=df['open'],
+    #     high=df['high'],
+    #     low=df['low'],
+    #     close=df['close'],
+    #     name = coin_name + ' price'
+    #     ))
 
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    st.plotly_chart(fig)
+    # st.plotly_chart(fig)
