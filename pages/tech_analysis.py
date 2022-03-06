@@ -53,7 +53,7 @@ def app():
         ))
 
     fig.add_trace(go.Candlestick(
-        x=df_api['Date'],
+        x=df_api['date'],
         open=df_api['open'],
         high=df_api['high'],
         low=df_api['low'],
@@ -175,4 +175,4 @@ def app():
     # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    # st.plotly_chart(fig)
+    st.plotly_chart(fig)
