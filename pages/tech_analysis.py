@@ -23,25 +23,25 @@ def app():
     #3.-----Plots figures
 
     # ==== Basic candel stick chart =================================================
-    fig = go.Figure()
+    # fig = go.Figure()
 
-    #Price candlesticks plots
-    fig.add_trace(go.Scatter(
-        x=df['Date'],
-        y=df["close"],
-        mode = 'lines',
-        name = '',
-        line = dict(width = 0.5, color = "white")
-        ))
+    # #Price candlesticks plots
+    # fig.add_trace(go.Scatter(
+    #     x=df['Date'],
+    #     y=df["close"],
+    #     mode = 'lines',
+    #     name = '',
+    #     line = dict(width = 0.5, color = "white")
+    #     ))
 
-    fig.add_trace(go.Candlestick(
-        x=df['Date'],
-        open=df['open'],
-        high=df['high'],
-        low=df['low'],
-        close=df['close'],
-        name = coin_name + ' price'
-        ))
+    # fig.add_trace(go.Candlestick(
+    #     x=df['Date'],
+    #     open=df['open'],
+    #     high=df['high'],
+    #     low=df['low'],
+    #     close=df['close'],
+    #     name = coin_name + ' price'
+    #     ))
 
     # #Prices for uncertainity bands
     # fig.add_trace(go.Scatter(
@@ -113,21 +113,21 @@ def app():
     #     fillcolor='rgba(245, 66, 66,0.2)'  #Red
     #     ))
 
-    #Defines figure properties
-    fig.update_layout(
-        title = coin_name + " uncertainity bands",
-        xaxis_title= "Date",
-        yaxis_title= coin_name + " price (USD)",
-        legend_title="Uncertainity risk levels",
+    # #Defines figure properties
+    # fig.update_layout(
+    #     title = coin_name + " uncertainity bands",
+    #     xaxis_title= "Date",
+    #     yaxis_title= coin_name + " price (USD)",
+    #     legend_title="Uncertainity risk levels",
         
-        plot_bgcolor = "black",
-        yaxis_type="log",
-        xaxis_rangeslider_visible=False)
+    #     plot_bgcolor = "black",
+    #     yaxis_type="log",
+    #     xaxis_rangeslider_visible=False)
 
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    st.plotly_chart(fig, use_container_width = True)
+    # st.plotly_chart(fig, use_container_width = True)
 
     # #=== Colored chart ========================================
 
