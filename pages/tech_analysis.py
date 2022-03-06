@@ -13,12 +13,24 @@ def app():
     st.write("\n")
     # Summarizes some metrics
 
-    #1.-----Downloads data
+    #1.-----Downloads data and cleans it
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
-    df_api = df_api24.loc["/v1/metrics/market/price_usd_ohlc-o","/v1/metrics/market/price_usd_ohlc-h",
-                    "/v1/metrics/market/price_usd_ohlc-c",
-                    "/v1/metrics/market/price_usd_ohlc-l",
-                    "fear_and_greed-value"]
+
+    #Selects metrics
+    df_api = df_api24[[ "Unnamed: 0",
+                        "/v1/metrics/market/price_usd_ohlc-o",
+                        "/v1/metrics/market/price_usd_ohlc-h",
+                        "/v1/metrics/market/price_usd_ohlc-c",
+                        "/v1/metrics/market/price_usd_ohlc-l",
+                        "fear_and_greed-value"]]
+    
+    #Renames the metrics
+    df_api = df_api.rename(columns={"Unnamed: 0":"date",
+                        "/v1/metrics/market/price_usd_ohlc-o":"open",
+                        "/v1/metrics/market/price_usd_ohlc-h":"high",
+                        "/v1/metrics/market/price_usd_ohlc-c":"close",
+                        "/v1/metrics/market/price_usd_ohlc-l":"low",
+                        "fear_and_greed-value":"fear_greed"})
 
     #2.-----API token definition
     coin_name = "BTC"
@@ -28,26 +40,26 @@ def app():
 
     #3.-----Plots figures
 
-    # ==== Basic candel stick chart =================================================
-    # fig = go.Figure()
+    #==== Basic candel stick chart =================================================
+    fig = go.Figure()
 
-    # #Price candlesticks plots
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["close"],
-    #     mode = 'lines',
-    #     name = '',
-    #     line = dict(width = 0.5, color = "white")
-    #     ))
+    #Price candlesticks plots
+    fig.add_trace(go.Scatter(
+        x=df_api['date'],
+        y=df_api["close"],
+        mode = 'lines',
+        name = '',
+        line = dict(width = 0.5, color = "white")
+        ))
 
-    # fig.add_trace(go.Candlestick(
-    #     x=df['Date'],
-    #     open=df['open'],
-    #     high=df['high'],
-    #     low=df['low'],
-    #     close=df['close'],
-    #     name = coin_name + ' price'
-    #     ))
+    fig.add_trace(go.Candlestick(
+        x=df_api['Date'],
+        open=df_api['open'],
+        high=df_api['high'],
+        low=df_api['low'],
+        close=df_api['close'],
+        name = coin_name + ' price'
+        ))
 
     # #Prices for uncertainity bands
     # fig.add_trace(go.Scatter(
