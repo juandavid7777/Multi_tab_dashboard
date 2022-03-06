@@ -43,7 +43,8 @@ def app():
 
 
     #==== Basic candel stick chart =================================================
-    fig = go.Figure()
+    # Create figure with secondary y-axis
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     #Price candlesticks plots
     fig.add_trace(go.Scatter(
