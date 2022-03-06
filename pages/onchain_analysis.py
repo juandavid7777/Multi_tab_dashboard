@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-from graphs import NUPL_graph
+#from graphs import NUPL_graph
 
 
 # @st.cache
@@ -14,4 +14,4 @@ def app():
     st.markdown("Onchain summary") 
     st.markdown("Sentiment summary")
 
-    NUPL_graph  
+    #NUPL_graph  
