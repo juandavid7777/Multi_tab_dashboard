@@ -23,7 +23,7 @@ def app():
 
     #3.-----Plots figures
 
-    #=================================================== BANDS CHART===========================================
+    # ==== Basic candel stick chart =================================================
     fig = go.Figure()
 
     #Price candlesticks plots
@@ -59,3 +59,33 @@ def app():
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
     st.plotly_chart(fig, use_container_width = True)
+
+    #=== Colored chart ========================================
+
+    fig = go.Figure()
+
+    # Create figure with secondary y-axis
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    fig.add_trace(go.Scatter(
+        x=df['Date'],
+        y=df["close"],
+        mode = 'markers',
+        name = '',
+        marker=dict(size=3,color = df["norm_dist"], colorscale='Jet',showscale=True)
+        ),secondary_y=False)
+
+    #Defines figure properties
+    fig.update_layout(
+        title = coin_name + " uncertainity colored metric",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
+        
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
+
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+
+    st.plotly_chart(fig)
