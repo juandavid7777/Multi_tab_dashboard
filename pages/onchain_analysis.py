@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
+from graphs import NUPL_graph
+
 
 # @st.cache
 def app():
@@ -10,4 +12,6 @@ def app():
     # Summarizes some metrics
     st.markdown("Technical summary") 
     st.markdown("Onchain summary") 
-    st.markdown("Sentiment summary")  
+    st.markdown("Sentiment summary")
+
+    NUPL_graph  
