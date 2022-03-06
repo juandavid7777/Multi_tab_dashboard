@@ -6,7 +6,7 @@ from datetime import datetime
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from graphs import NUPL_graph
+from pages.graphs import NUPL_graph
 
 
 # @st.cache
