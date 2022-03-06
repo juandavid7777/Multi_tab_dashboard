@@ -58,4 +58,4 @@ def app():
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width = True)
