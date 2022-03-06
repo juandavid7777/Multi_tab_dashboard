@@ -12,6 +12,7 @@ df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_ta
 
 metric_api_name = "/v1/metrics/indicators/net_unrealized_profit_loss"
 metric_new_name = "NUPL"
+coin_name = "BTC"
 
 #Selects metrics
 df_api = df_api24[[ "Unnamed: 0",
@@ -29,12 +30,8 @@ df_api = df_api.rename(columns={"Unnamed: 0":"date",
                     "/v1/metrics/market/price_usd_ohlc-l":"low",
                     metric_api_name:metric_new_name})
 
-#2.-----API token definition
-coin_name = "BTC"
-projected_days = 180
 
-
- #==== Basic candel stick chart =================================================
+#==== Basic candel stick chart =================================================
 fig = go.Figure()
 
 #Price candlesticks plots
