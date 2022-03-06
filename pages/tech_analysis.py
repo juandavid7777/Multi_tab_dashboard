@@ -36,8 +36,6 @@ def app():
     coin_name = "BTC"
     projected_days = 180
 
-    st.table(df_api)
-
     #3.-----Plots figures
 
     #==== Basic candel stick chart =================================================
@@ -162,17 +160,17 @@ def app():
     #     marker=dict(size=3,color = df["norm_dist"], colorscale='Jet',showscale=True)
     #     ),secondary_y=False)
 
-    # #Defines figure properties
-    # fig.update_layout(
-    #     title = coin_name + " uncertainity colored metric",
-    #     xaxis_title= "Date",
-    #     yaxis_title= coin_name + " price (USD)",
+    #Defines figure properties
+    fig.update_layout(
+        title = coin_name + " uncertainity colored metric",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
         
-    #     plot_bgcolor = "black",
-    #     yaxis_type="log",
-    #     xaxis_rangeslider_visible=False)
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
 
-    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
     st.plotly_chart(fig)
