@@ -15,11 +15,11 @@ def app():
 
     #1.-----Downloads data
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
-    df_api = df_api24[[df_api[[/v1/metrics/market/price_usd_ohlc-o,
-                    /v1/metrics/market/price_usd_ohlc-h,
-                    /v1/metrics/market/price_usd_ohlc-c,
-                    /v1/metrics/market/price_usd_ohlc-l,
-                    fear_and_greed-value]]]]
+    df_api = df_api24[["/v1/metrics/market/price_usd_ohlc-o",
+                    "/v1/metrics/market/price_usd_ohlc-h",
+                    "/v1/metrics/market/price_usd_ohlc-c",
+                    "/v1/metrics/market/price_usd_ohlc-l",
+                    "fear_and_greed-value"]]
 
     #2.-----API token definition
     coin_name = "BTC"
