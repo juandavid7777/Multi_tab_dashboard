@@ -157,6 +157,8 @@ def app():
 
     st.plotly_chart(fig, use_container_width = True)
 
+    # Uncertainity bands plot finished ===================================================
+
     # #=== Colored chart ========================================
 
     # fig = go.Figure()
@@ -173,16 +175,16 @@ def app():
     #     ),secondary_y=False)
 
     #Defines figure properties
-    fig.update_layout(
-        title = coin_name + " uncertainity colored metric",
-        xaxis_title= "Date",
-        yaxis_title= coin_name + " price (USD)",
+    # fig.update_layout(
+    #     title = coin_name + " uncertainity colored metric",
+    #     xaxis_title= "Date",
+    #     yaxis_title= coin_name + " price (USD)",
         
-        plot_bgcolor = "black",
-        yaxis_type="log",
-        xaxis_rangeslider_visible=False)
+    #     plot_bgcolor = "black",
+    #     yaxis_type="log",
+    #     xaxis_rangeslider_visible=False)
 
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    st.plotly_chart(fig)
+    # st.plotly_chart(fig)
