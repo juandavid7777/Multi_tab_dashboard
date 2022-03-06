@@ -44,6 +44,10 @@ def app():
         name = coin_name + ' price'
         ))
 
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
+
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
