@@ -35,16 +35,16 @@ def app():
         line = dict(width = 0.5, color = "white")
         ))
 
-    # fig.add_trace(go.Candlestick(
-    #     x=df['Date'],
-    #     open=df['open'],
-    #     high=df['high'],
-    #     low=df['low'],
-    #     close=df['close'],
-    #     name = coin_name + ' price'
-    #     ))
+    fig.add_trace(go.Candlestick(
+        x=df['Date'],
+        open=df['open'],
+        high=df['high'],
+        low=df['low'],
+        close=df['close'],
+        name = coin_name + ' price'
+        ))
 
-    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
     st.plotly_chart(fig)
