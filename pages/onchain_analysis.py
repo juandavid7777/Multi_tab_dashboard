@@ -85,7 +85,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='pink', secondary_y = True)
+    fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='yellow', secondary_y = True)
 
     st.plotly_chart(fig)
 
