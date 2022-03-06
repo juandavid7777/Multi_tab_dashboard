@@ -15,6 +15,7 @@ def app():
 
     #1.-----Downloads data and cleans it
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
+    df_metrics24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/metrics24.csv")
 
     #Selects metrics
     df_api = df_api24[[ "Unnamed: 0",
@@ -22,7 +23,17 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-h",
                         "/v1/metrics/market/price_usd_ohlc-c",
                         "/v1/metrics/market/price_usd_ohlc-l",
-                        "fear_and_greed-value"]]
+                        ]]
+
+    df_metrics = df_metrics24[[ "Date",
+                        'price_reg',
+                        'plus_3STDV',
+                        'minus_3STDV',
+                        'plus_2STDV',
+                        'minus_2STDV',
+                        'plus_1STDV',
+                        'minus_1STDV',
+                        ]]
     
     #Renames the metrics
     df_api = df_api.rename(columns={"Unnamed: 0":"date",
@@ -30,14 +41,15 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-h":"high",
                         "/v1/metrics/market/price_usd_ohlc-c":"close",
                         "/v1/metrics/market/price_usd_ohlc-l":"low",
-                        "fear_and_greed-value":"fear_greed"})
+                        })
+
+    df_metrics = df_metrics24.rename(columns={"Date":"date"})
 
     #2.-----API token definition
     coin_name = "BTC"
     projected_days = 180
 
-    #3.-----Plots figures
-
+    #3.-----Plots figures Uncertainity bands
     #==== Basic candel stick chart =================================================
     fig = go.Figure()
 
@@ -59,91 +71,91 @@ def app():
         name = coin_name + ' price'
         ))
 
-    # #Prices for uncertainity bands
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["plus_3STDV"],
-    #     mode = 'lines',
-    #     name = '99.9%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "red"),
-    #     ))
+    #Prices for uncertainity bands
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["plus_3STDV"],
+        mode = 'lines',
+        name = '99.9%',
+        line = dict(width = 0.5, dash = 'dash', color = "red"),
+        ))
 
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["plus_2STDV"],
-    #     mode = 'lines',
-    #     name = '97.8%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
-    #     fill='tonexty',
-    #     fillcolor='rgba(245, 66, 66,0.2)'  #Red
-    #     ))
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["plus_2STDV"],
+        mode = 'lines',
+        name = '97.8%',
+        line = dict(width = 0.5, dash = 'dash', color = "yellow"),
+        fill='tonexty',
+        fillcolor='rgba(245, 66, 66,0.2)'  #Red
+        ))
 
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["plus_1STDV"],
-    #     mode = 'lines',
-    #     name = '84.2%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "green"),\
-    #     fill='tonexty',
-    #     fillcolor='rgba(245, 230, 66,0.2)'  #yellow
-    #     ))
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["plus_1STDV"],
+        mode = 'lines',
+        name = '84.2%',
+        line = dict(width = 0.5, dash = 'dash', color = "green"),\
+        fill='tonexty',
+        fillcolor='rgba(245, 230, 66,0.2)'  #yellow
+        ))
 
-    # #Prices regression plot
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["price_reg"],
-    #     mode = 'lines',
-    #     name = '50.0%',
-    #     line = dict(width = 1.0, dash = 'dash', color = "grey"),
-    #     fill='tonexty',
-    #     fillcolor='rgba(0, 199, 56,0.2)'  #green
-    #     ))
+    #Prices regression plot
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["price_reg"],
+        mode = 'lines',
+        name = '50.0%',
+        line = dict(width = 1.0, dash = 'dash', color = "grey"),
+        fill='tonexty',
+        fillcolor='rgba(0, 199, 56,0.2)'  #green
+        ))
 
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["minus_1STDV"],
-    #     mode = 'lines',
-    #     name = '15.8%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "green"),
-    #     fill='tonexty',
-    #     fillcolor='rgba(0, 199, 56,0.2)'  #green
-    #     ))
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["minus_1STDV"],
+        mode = 'lines',
+        name = '15.8%',
+        line = dict(width = 0.5, dash = 'dash', color = "green"),
+        fill='tonexty',
+        fillcolor='rgba(0, 199, 56,0.2)'  #green
+        ))
 
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["minus_2STDV"],
-    #     mode = 'lines',
-    #     name = '2.2%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
-    #     fill='tonexty',
-    #     fillcolor='rgba(245, 230, 66,0.2)'  #Yellow
-    #     ))
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["minus_2STDV"],
+        mode = 'lines',
+        name = '2.2%',
+        line = dict(width = 0.5, dash = 'dash', color = "yellow"),
+        fill='tonexty',
+        fillcolor='rgba(245, 230, 66,0.2)'  #Yellow
+        ))
 
-    # fig.add_trace(go.Scatter(
-    #     x=df['Date'],
-    #     y=df["minus_3STDV"],
-    #     mode = 'lines',
-    #     name = '0.1%',
-    #     line = dict(width = 0.5, dash = 'dash', color = "red"),
-    #     fill='tonexty',
-    #     fillcolor='rgba(245, 66, 66,0.2)'  #Red
-    #     ))
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["minus_3STDV"],
+        mode = 'lines',
+        name = '0.1%',
+        line = dict(width = 0.5, dash = 'dash', color = "red"),
+        fill='tonexty',
+        fillcolor='rgba(245, 66, 66,0.2)'  #Red
+        ))
 
-    # #Defines figure properties
-    # fig.update_layout(
-    #     title = coin_name + " uncertainity bands",
-    #     xaxis_title= "Date",
-    #     yaxis_title= coin_name + " price (USD)",
-    #     legend_title="Uncertainity risk levels",
+    #Defines figure properties
+    fig.update_layout(
+        title = coin_name + " uncertainity bands",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
+        legend_title="Uncertainity risk levels",
         
-    #     plot_bgcolor = "black",
-    #     yaxis_type="log",
-    #     xaxis_rangeslider_visible=False)
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
 
-    # fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
-    # fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-    # st.plotly_chart(fig, use_container_width = True)
+    st.plotly_chart(fig, use_container_width = True)
 
     # #=== Colored chart ========================================
 
