@@ -32,7 +32,8 @@ df_api = df_api.rename(columns={"Unnamed: 0":"date",
 
 
 #==== Basic candel stick chart =================================================
-fig = go.Figure()
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 #Price candlesticks plots
 fig.add_trace(go.Scatter(
@@ -73,6 +74,6 @@ fig.update_layout(
 
 fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='pink', secondary_y = True)
+fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='yellow', secondary_y = True)
 
 st.plotly_chart(fig)
