@@ -35,7 +35,42 @@ def app():
     st.write("\n")
     st.markdown("Technical summary")
     # Technical summary ====================================================================================================================================
+    df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
+    df_metrics24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/metrics24.csv")
 
+    #Selects metrics
+    df_api = df_api24[[ "Unnamed: 0",
+                        "/v1/metrics/market/price_usd_ohlc-o",
+                        "/v1/metrics/market/price_usd_ohlc-h",
+                        "/v1/metrics/market/price_usd_ohlc-c",
+                        "/v1/metrics/market/price_usd_ohlc-l",
+                        ]]
+
+    df_metrics = df_metrics24[[ "Date",
+                        'close',
+                        'price_reg',
+                        'plus_3STDV',
+                        'minus_3STDV',
+                        'plus_2STDV',
+                        'minus_2STDV',
+                        'plus_1STDV',
+                        'minus_1STDV',
+                        "norm_dist",
+                        "risk_MA_norm"
+                        ]]
+    
+    #Renames the metrics
+    df_api = df_api.rename(columns={"Unnamed: 0":"date",
+                        "/v1/metrics/market/price_usd_ohlc-o":"open",
+                        "/v1/metrics/market/price_usd_ohlc-h":"high",
+                        "/v1/metrics/market/price_usd_ohlc-c":"close",
+                        "/v1/metrics/market/price_usd_ohlc-l":"low",
+                        })
+
+    df_metrics = df_metrics.rename(columns={"Date":"date"})
+
+
+    st.table(df_metrics.set_index("date").iloc[-2])
 
     # End of technical summary =============================================================================================================================
     #On chain summary ======================================================================================================================================= 
