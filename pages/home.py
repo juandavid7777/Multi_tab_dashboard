@@ -68,12 +68,12 @@ def app():
 
     df_metrics = df_metrics.rename(columns={"Date":"date",
                                             "norm_dist":"Time uncertainity risk",
-                                            "risk_MA_norm":"MA uncertainity risk"
+                                            "risk_MA_norm":"MA uncertainity risk",
                                             'plus_3STDV':"99.9% risk price",
                                             'plus_2STDV':"97.8% risk price",
                                             'plus_1STDV':"84.2% risk price",
                                             'price_reg': "50.0% risk price",
-                                            'minus_1STDV': "15.8% risk price"
+                                            'minus_1STDV': "15.8% risk price",
                                             'minus_2STDV': "2.2% risk price",
                                             'minus_3STDV': "0.1% risk price"
                                             })
