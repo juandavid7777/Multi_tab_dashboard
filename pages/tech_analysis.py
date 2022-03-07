@@ -262,7 +262,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = "Combined risk metrics",
+        title = "Combined downside risk metrics",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
