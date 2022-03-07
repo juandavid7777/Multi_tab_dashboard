@@ -26,7 +26,6 @@ def app():
                         ]]
 
     df_metrics = df_metrics24[[ "Date",
-                        'close'
                         'price_reg',
                         'plus_3STDV',
                         'minus_3STDV',
