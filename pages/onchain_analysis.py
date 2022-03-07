@@ -254,7 +254,6 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-l":"low",
                         metric_api_name:metric_new_name})
 
-
     # NUPL chart =================================================
     # Create figure with secondary y-axis
     fig = make_subplots(specs=[[{"secondary_y": True}]])
