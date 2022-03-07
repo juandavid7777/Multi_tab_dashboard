@@ -79,7 +79,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "NUPL value", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -152,7 +152,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "MVRV Z score", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
