@@ -25,7 +25,7 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-c":"close",
                         "/v1/metrics/market/price_usd_ohlc-l":"low"})
 
-    st.table(df_api.set_index("date").iloc[-3:-2].tail(1))
+    st.table(df_api.set_index("date").iloc[-2:-1].tail(1))
 
 
     st.write("\n")
