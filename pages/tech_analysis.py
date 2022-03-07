@@ -247,7 +247,7 @@ def app():
         x=df_metrics['date'],
         y=df_metrics["norm_dist"],
         mode = 'lines',
-        name = "Time uncertainity risk",
+        name = "Time uncertainity downside risk",
         line = dict(width = 1.0, color = "chartreuse")
         ),secondary_y=True)
 
@@ -256,7 +256,7 @@ def app():
         x=df_metrics['date'],
         y=df_metrics["risk_MA_norm"],
         mode = 'lines',
-        name = "MA uncertainity risk",
+        name = "MA uncertainity downside risk",
         line = dict(width = 1.0, color = "cyan")
         ),secondary_y=True)
 
