@@ -24,10 +24,6 @@ def app():
 
     #Selects metrics
     df_api = df_api24[[ "Unnamed: 0",
-                        "/v1/metrics/market/price_usd_ohlc-o",
-                        "/v1/metrics/market/price_usd_ohlc-h",
-                        "/v1/metrics/market/price_usd_ohlc-c",
-                        "/v1/metrics/market/price_usd_ohlc-l",
                         "/v1/metrics/market/mvrv_z_score",
                         "/v1/metrics/mining/marketcap_thermocap_ratio",
                         "/v1/metrics/indicators/net_unrealized_profit_loss",
@@ -35,10 +31,6 @@ def app():
 
     #Renames the metrics
     df_api = df_api.rename(columns={"Unnamed: 0":"date",
-                        "/v1/metrics/market/price_usd_ohlc-o":"open",
-                        "/v1/metrics/market/price_usd_ohlc-h":"high",
-                        "/v1/metrics/market/price_usd_ohlc-c":"close",
-                        "/v1/metrics/market/price_usd_ohlc-l":"low",
                         "/v1/metrics/market/mvrv_z_score":"MVRVZ",
                         "/v1/metrics/mining/marketcap_thermocap_ratio":"thermocap_rat",
                         "/v1/metrics/indicators/net_unrealized_profit_loss":"NUPL",
