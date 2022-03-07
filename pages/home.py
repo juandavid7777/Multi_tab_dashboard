@@ -47,16 +47,15 @@ def app():
                         ]]
 
     df_metrics = df_metrics24[[ "Date",
-                        'close',
-                        'price_reg',
-                        'plus_3STDV',
-                        'minus_3STDV',
-                        'plus_2STDV',
-                        'minus_2STDV',
-                        'plus_1STDV',
-                        'minus_1STDV',
                         "norm_dist",
-                        "risk_MA_norm"
+                        "risk_MA_norm",
+                        'plus_3STDV',
+                        'plus_2STDV',
+                        'plus_1STDV',
+                        'price_reg',
+                        'minus_1STDV'
+                        'minus_2STDV',
+                        'minus_3STDV'                        
                         ]]
     
     #Renames the metrics
@@ -67,7 +66,17 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-l":"low",
                         })
 
-    df_metrics = df_metrics.rename(columns={"Date":"date"})
+    df_metrics = df_metrics.rename(columns={"Date":"date",
+                                            "norm_dist":"Time uncertainity risk",
+                                            "risk_MA_norm":"MA uncertainity risk"
+                                            'plus_3STDV':"99.9% risk price",
+                                            'plus_2STDV':"97.8% risk price",
+                                            'plus_1STDV':"84.2% risk price",
+                                            'price_reg': "50.0% risk price",
+                                            'minus_1STDV': "15.8% risk price"
+                                            'minus_2STDV': "2.2% risk price",
+                                            'minus_3STDV': "0.1% risk price"
+                                            })
 
 
     st.table(df_metrics.set_index("date").iloc[-2])
