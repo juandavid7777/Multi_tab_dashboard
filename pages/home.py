@@ -53,7 +53,7 @@ def app():
                         'plus_2STDV',
                         'plus_1STDV',
                         'price_reg',
-                        'minus_1STDV'
+                        'minus_1STDV',
                         'minus_2STDV',
                         'minus_3STDV'                        
                         ]]
