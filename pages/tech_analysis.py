@@ -158,8 +158,7 @@ def app():
     st.plotly_chart(fig, use_container_width = True)
 
     # Uncertainity bands plot finished ===================================================
-
-    #4=== Colored chart risk metric reg ========================================
+    #4=== Colored chart risk metric reg ==================================================
 
     fig = go.Figure()
 
@@ -176,7 +175,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = coin_name + " uncertainity colored metric",
+        title = coin_name + " time uncertainity metric",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
@@ -188,3 +187,36 @@ def app():
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
     st.plotly_chart(fig)
+
+    # End of colored chart risk metric reg ==============================================
+    #5=== Colored chart MA risk metric ==================================================
+
+    fig = go.Figure()
+
+    # Create figure with secondary y-axis
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    fig.add_trace(go.Scatter(
+        x=df_metrics['date'],
+        y=df_metrics["close"],
+        mode = 'markers',
+        name = '',
+        marker=dict(size=3,color = df_metrics["risk_MA_norm"], colorscale='Jet',showscale=True)
+        ),secondary_y=False)
+
+    #Defines figure properties
+    fig.update_layout(
+        title = coin_name + " MA uncertainity metric",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
+        
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
+
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+
+    st.plotly_chart(fig)
+
+    # End of colored chart MA risk metric ==============================================
