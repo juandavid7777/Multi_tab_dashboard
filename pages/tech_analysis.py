@@ -167,8 +167,8 @@ def app():
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     fig.add_trace(go.Scatter(
-        x=df_api['date'],
-        y=df_api["close"],
+        x=df_metrics['date'],
+        y=df_metrics["close"],
         mode = 'markers',
         name = '',
         marker=dict(size=3,color = df_metrics["norm_dist"], colorscale='Jet',showscale=True)
