@@ -79,7 +79,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "NUPL value", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "NUPL value - Sell > 0.75 : Buy < 0.25", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -152,7 +152,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "MVRV Z score", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "MVRV Z score - Sell > 7: Buy < 0", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -225,11 +225,11 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "ThermoCap Ratio", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "ThermoCap Ratio - Sell > 0.000004: Buy < 0.0000004", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
-    # Thermocap ratio ===================================================================================
+    # Thermocap ratio end ===================================================================================
     # Puel Multiple  ====================================================================================
     #1.-----Downloads data and cleans it
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
@@ -298,7 +298,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "Puell Multiple", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "Puell Multiple - Buy > 4: Sell < 0.5", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)    
 
