@@ -237,11 +237,11 @@ def app():
         ),secondary_y=False)
 
     fig.add_trace(go.Candlestick(
-        x=df_metrics['date'],
-        open=df_metrics['open'],
-        high=df_metrics['high'],
-        low=df_metrics['low'],
-        close=df_metrics['close'],
+        x=df_api['date'],
+        open=df_api['open'],
+        high=df_api['high'],
+        low=df_api['low'],
+        close=df_api['close'],
         name = coin_name + ' price'
         ),secondary_y=False)
 
