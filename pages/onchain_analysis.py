@@ -64,7 +64,7 @@ def app():
         y=df_api[metric_new_name],
         mode = 'lines',
         name = metric_new_name,
-        line = dict(width = 1.0, color = "orange")
+        line = dict(width = 1.0, color = "cyan")
         ),secondary_y=True)
 
     #Defines figure properties
