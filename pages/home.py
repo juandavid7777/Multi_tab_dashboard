@@ -36,7 +36,7 @@ def app():
                         "/v1/metrics/indicators/net_unrealized_profit_loss":"NUPL",
                         "fear_and_greed-value": "fg_val"})
 
-    st.table(df_api.iloc[-1])
+    st.table(df_api.iloc[-2])
 
     #On chain summary end ======================================================================================================================================= 
 
