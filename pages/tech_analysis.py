@@ -220,3 +220,60 @@ def app():
     st.plotly_chart(fig)
 
     # End of colored chart MA risk metric ==============================================
+    # Combined Basic candel stick chart =================================================
+    # Create figure with secondary y-axis
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    #Price candlesticks plots
+    fig.add_trace(go.Scatter(
+        x=df_api['date'],
+        y=df_api["close"],
+        mode = 'lines',
+        name = '',
+        line = dict(width = 0.5, color = "white")
+        ),secondary_y=False)
+
+    fig.add_trace(go.Candlestick(
+        x=df_api['date'],
+        open=df_api['open'],
+        high=df_api['high'],
+        low=df_api['low'],
+        close=df_api['close'],
+        name = coin_name + ' price'
+        ),secondary_y=False)
+
+    #Adds metric
+    fig.add_trace(go.Scatter(
+        x=df_api['date'],
+        y=df_api["norm_dist"],
+        mode = 'lines',
+        name = "Time uncertainity risk",
+        line = dict(width = 1.0, color = "orange")
+        ),secondary_y=True)
+
+    #Adds metric
+    fig.add_trace(go.Scatter(
+        x=df_api['date'],
+        y=df_api["risk_MA_norm"],
+        mode = 'lines',
+        name = "MA uncertainity risk",
+        line = dict(width = 1.0, color = "red")
+        ),secondary_y=True)
+
+    #Defines figure properties
+    fig.update_layout(
+        title = "Combined risk metrics",
+        xaxis_title= "Date",
+        yaxis_title= coin_name + " price (USD)",
+        
+        plot_bgcolor = "black",
+        yaxis_type="log",
+        xaxis_rangeslider_visible=False)
+
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
+    fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='yellow', secondary_y = True)
+
+    st.plotly_chart(fig)
+
+    # # NUPL END ===================================================================================
