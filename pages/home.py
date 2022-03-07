@@ -6,6 +6,28 @@ import pandas as pd
 # @st.cache
 def app():
     st.markdown("## HOME")
+
+    #Price summary
+    #1.-----Downloads data and cleans it
+    df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
+
+    #Selects metrics
+    df_api = df_api24[[ "Unnamed: 0",
+                        "/v1/metrics/market/price_usd_ohlc-o",
+                        "/v1/metrics/market/price_usd_ohlc-h",
+                        "/v1/metrics/market/price_usd_ohlc-c",
+                        "/v1/metrics/market/price_usd_ohlc-l"]]
+
+    #Renames the metrics
+    df_api = df_api.rename(columns={"Unnamed: 0":"date",
+                        "/v1/metrics/market/price_usd_ohlc-o":"open",
+                        "/v1/metrics/market/price_usd_ohlc-h":"high",
+                        "/v1/metrics/market/price_usd_ohlc-c":"close",
+                        "/v1/metrics/market/price_usd_ohlc-l":"low"})
+
+    st.table(df_api.set_index("date").iloc[-3:-2].tail(1))
+
+
     st.write("\n")
     # Summarizes some metrics
     st.markdown("# Metrics latest summary")
