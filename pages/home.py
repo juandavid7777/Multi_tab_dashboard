@@ -47,6 +47,7 @@ def app():
                         ]]
 
     df_metrics = df_metrics24[[ "Date",
+                        "close",
                         "norm_dist",
                         "risk_MA_norm",
                         'plus_3STDV',
@@ -79,7 +80,7 @@ def app():
                                             })
 
 
-    st.table(df_metrics.set_index("date").iloc[-2])
+    st.table(df_metrics.set_index("date").iloc[df_metrics["close"].index.get_loc(df_metrics["close"].last_valid_index())])
 
     # End of technical summary =============================================================================================================================
     #On chain summary ======================================================================================================================================= 
