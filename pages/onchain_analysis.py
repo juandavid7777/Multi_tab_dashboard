@@ -69,7 +69,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = metric_new_name + "  metric",
+        title = metric_new_name + " metric - Sell > 0.75 : Buy < 0.25",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
@@ -79,7 +79,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "NUPL value - Sell > 0.75 : Buy < 0.25", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "NUPL value", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -142,7 +142,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = metric_new_name + "  metric",
+        title = metric_new_name + " metric - Sell > 7: Buy < 0",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
@@ -152,7 +152,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "MVRV Z score - Sell > 7: Buy < 0", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "MVRV Z score", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -215,7 +215,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = metric_new_name + "  metric",
+        title = metric_new_name + " metric - Sell > 0.000004: Buy < 0.0000004",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
@@ -225,7 +225,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "ThermoCap Ratio - Sell > 0.000004: Buy < 0.0000004", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "ThermoCap Ratio", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)
 
@@ -288,7 +288,7 @@ def app():
 
     #Defines figure properties
     fig.update_layout(
-        title = metric_new_name + "  metric",
+        title = metric_new_name + " metric - Buy > 4: Sell < 0.5",
         xaxis_title= "Date",
         yaxis_title= coin_name + " price (USD)",
         
@@ -298,7 +298,7 @@ def app():
 
     fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
     fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
-    fig.update_yaxes(title = "Puell Multiple - Buy > 4: Sell < 0.5", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
+    fig.update_yaxes(title = "Puell Multiple", showgrid=True, gridwidth=1, gridcolor='silver', secondary_y = True)
 
     st.plotly_chart(fig)    
 
