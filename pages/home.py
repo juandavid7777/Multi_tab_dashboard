@@ -34,7 +34,10 @@ def app():
     st.markdown("## Metrics latest summary")
     st.write("\n")
     st.markdown("Technical summary")
+    # Technical summary ====================================================================================================================================
 
+
+    # End of technical summary =============================================================================================================================
     #On chain summary ======================================================================================================================================= 
     st.markdown("Onchain summary")
 
@@ -56,14 +59,12 @@ def app():
     df_api = df_api.rename(columns={"Unnamed: 0":"date",
                         "/v1/metrics/market/mvrv_z_score":"MVRV Z Score",
                         "/v1/metrics/mining/marketcap_thermocap_ratio":"Thermocap Ratio",
-                        "/v1/metrics/indicators/net_unrealized_profit_loss":"NUPL",
+                        "/v1/metrics/indicators/net_unrealized_profit_loss":"Net Unrealized Profit/Loss (NUPL)",
                         "/v1/metrics/indicators/puell_multiple":"Puell Multiple"})
 
     st.table(df_api.set_index("date").iloc[-2])
 
     #On chain summary end ======================================================================================================================================= 
-
-
     #Sentiment summary ======================================================================================================================================= 
     st.markdown("Sentiment summary")  
  
