@@ -5,9 +5,9 @@ import pandas as pd
 
 # @st.cache
 def app():
-    st.markdown("## HOME")
+    st.markdown("# HOME")
 
-    st.markdown("# BTC price latest summary")
+    st.markdown("## BTC price latest summary")
     #Price summary
     #1.-----Downloads data and cleans it
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
@@ -31,7 +31,7 @@ def app():
 
     
     # Summarizes some metrics
-    st.markdown("# Metrics latest summary")
+    st.markdown("## Metrics latest summary")
     st.write("\n")
     st.markdown("Technical summary")
 
