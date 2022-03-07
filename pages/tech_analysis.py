@@ -33,6 +33,8 @@ def app():
                         'minus_2STDV',
                         'plus_1STDV',
                         'minus_1STDV',
+                        "norm_dist",
+                        "risk_MA_norm"
                         ]]
     
     #Renames the metrics
@@ -43,7 +45,7 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-l":"low",
                         })
 
-    df_metrics = df_metrics24.rename(columns={"Date":"date"})
+    df_metrics = df_metrics.rename(columns={"Date":"date"})
 
     #2.-----API token definition
     coin_name = "BTC"
