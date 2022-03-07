@@ -210,7 +210,7 @@ def app():
         y=df_api[metric_new_name],
         mode = 'lines',
         name = metric_new_name,
-        line = dict(width = 1.0, color = "yellow")
+        line = dict(width = 1.0, color = "magenta")
         ),secondary_y=True)
 
     #Defines figure properties
