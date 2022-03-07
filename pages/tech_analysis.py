@@ -248,7 +248,7 @@ def app():
         y=df_metrics["norm_dist"],
         mode = 'lines',
         name = "Time uncertainity risk",
-        line = dict(width = 1.0, color = "blue")
+        line = dict(width = 1.0, color = "chartreuse")
         ),secondary_y=True)
 
     #Adds metric
@@ -257,7 +257,7 @@ def app():
         y=df_metrics["risk_MA_norm"],
         mode = 'lines',
         name = "MA uncertainity risk",
-        line = dict(width = 1.0, color = "green")
+        line = dict(width = 1.0, color = "cyan")
         ),secondary_y=True)
 
     #Defines figure properties
