@@ -30,8 +30,8 @@ def app():
 
     #Renames the metrics
     df_api = df_api.rename(columns={"Unnamed: 0":"date",
-                        "/v1/metrics/market/mvrv_z_score":"MVRVZ",
-                        "/v1/metrics/mining/marketcap_thermocap_ratio":"thermocap_rat",
+                        "/v1/metrics/market/mvrv_z_score":"MVRV Z Score",
+                        "/v1/metrics/mining/marketcap_thermocap_ratio":"Thermocap Ratio",
                         "/v1/metrics/indicators/net_unrealized_profit_loss":"NUPL"})
 
     st.table(df_api.set_index("date").iloc[-2])
@@ -55,7 +55,7 @@ def app():
 
     #Renames the metrics
     df_api = df_api.rename(columns={"Unnamed: 0":"date",
-                        "fear_and_greed-value": "fg_val"})
+                        "fear_and_greed-value": "Fear and Greed"})
 
     st.table(df_api.set_index("date").iloc[-2])
 
