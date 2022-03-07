@@ -7,6 +7,7 @@ import pandas as pd
 def app():
     st.markdown("## HOME")
 
+    st.markdown("# BTC price latest summary")
     #Price summary
     #1.-----Downloads data and cleans it
     df_api24 = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Multi_tab_dashboard/main/data/api_24h.csv?token=GHSAT0AAAAAABSGJ422NL7BZDYFQTJXHFPCYRENPLQ")
@@ -28,7 +29,7 @@ def app():
     st.table(df_api.set_index("date").iloc[-2:-1].tail(1))
 
 
-    st.write("\n")
+    
     # Summarizes some metrics
     st.markdown("# Metrics latest summary")
     st.write("\n")
