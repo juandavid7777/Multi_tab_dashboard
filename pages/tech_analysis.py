@@ -42,7 +42,7 @@ def app():
                         "/v1/metrics/market/price_usd_ohlc-o":"open",
                         "/v1/metrics/market/price_usd_ohlc-h":"high",
                         "/v1/metrics/market/price_usd_ohlc-c":"close",
-                        "/v1/metrics/market/price_usd_ohlc-l":"low",
+                        "/v1/metrics/market/price_usd_ohlc-l":"low"
                         })
 
     df_metrics = df_metrics.rename(columns={"Date":"date"})
